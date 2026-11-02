@@ -1,0 +1,84 @@
+.contact {
+  min-height: 85svh;
+}
+
+.channels {
+  display: grid;
+  max-width: 46rem;
+}
+
+.channel {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    'label icon'
+    'detail icon';
+  align-items: center;
+  column-gap: var(--space-m);
+  padding: clamp(1.25rem, 3vw, 2rem) 0;
+  border-top: 1px solid var(--color-graphite-line);
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.channels li:last-child .channel {
+  border-bottom: 1px solid var(--color-graphite-line);
+}
+
+.label {
+  grid-area: label;
+  font-stretch: var(--stretch-display);
+  font-size: clamp(2.25rem, 1.2rem + 5vw, 5rem);
+  font-weight: 760;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  transition: transform 420ms var(--ease-out-expo);
+}
+
+.detail {
+  grid-area: detail;
+  margin-top: var(--space-2xs);
+  color: var(--text-tertiary);
+  overflow-wrap: anywhere;
+  transition: color var(--duration-quick) ease;
+}
+
+.icon {
+  grid-area: icon;
+  width: clamp(1.75rem, 1rem + 2vw, 3rem);
+  height: clamp(1.75rem, 1rem + 2vw, 3rem);
+  color: var(--text-tertiary);
+  transition:
+    transform 420ms var(--ease-out-expo),
+    color var(--duration-quick) ease;
+}
+
+.channel:hover .label,
+.channel:focus-visible .label {
+  transform: translateX(0.12em);
+}
+
+.channel:hover .detail,
+.channel:hover .icon,
+.channel:focus-visible .icon {
+  color: var(--text-primary);
+}
+
+.channel:hover .icon,
+.channel:focus-visible .icon {
+  transform: translate(0.15em, -0.15em);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .label,
+  .icon {
+    transition: color var(--duration-quick) ease;
+  }
+
+  .channel:hover .label,
+  .channel:focus-visible .label,
+  .channel:hover .icon,
+  .channel:focus-visible .icon {
+    transform: none;
+  }
+}

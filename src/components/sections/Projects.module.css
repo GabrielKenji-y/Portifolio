@@ -1,0 +1,9 @@
+.projects {
+  min-height: 90svh;
+}
+
+/* Com projetos, a lista ocupa a largura toda; sem eles, o vazio fica na coluna de texto. */
+.list {
+  display: grid;
+  border-bottom: 1px solid var(--color-graphite-line);
+}

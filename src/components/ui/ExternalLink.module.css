@@ -1,0 +1,33 @@
+.link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35em;
+  color: var(--text-primary);
+  text-decoration-line: underline;
+  text-decoration-color: var(--color-graphite-line);
+  transition: text-decoration-color var(--duration-quick) ease;
+}
+
+.link:hover {
+  text-decoration-color: currentColor;
+}
+
+.icon {
+  flex: none;
+  width: 0.8em;
+  height: 0.8em;
+  transform: translateY(0.08em);
+  transition: transform var(--duration-quick) var(--ease-out-expo);
+}
+
+.link:hover .icon {
+  transform: translate(0.12em, -0.04em);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icon,
+  .link:hover .icon {
+    transition: none;
+    transform: translateY(0.08em);
+  }
+}

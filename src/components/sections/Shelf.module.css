@@ -1,0 +1,48 @@
+/* Habilidades e Formação dividem a mesma faixa: seções curtas, lado a lado no desktop. */
+.shelf {
+  padding-block: 0;
+}
+
+.shelf h2 {
+  font-size: var(--step-2);
+}
+
+.groups,
+.timeline {
+  display: grid;
+  gap: var(--space-l);
+}
+
+.group {
+  display: grid;
+  gap: var(--space-2xs);
+  padding-top: var(--space-s);
+  border-top: 1px solid var(--color-graphite-line);
+}
+
+.groupTitle {
+  font-size: var(--step-1);
+  font-weight: 680;
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.1rem;
+  color: var(--text-secondary);
+}
+
+.meta {
+  color: var(--text-tertiary);
+  font-variant-numeric: tabular-nums;
+}
+
+.description {
+  max-width: var(--measure);
+  color: var(--text-secondary);
+}
+
+/* Seções curtas: o título fica perto do próprio conteúdo. */
+.shelf > header {
+  margin-bottom: var(--space-m);
+}

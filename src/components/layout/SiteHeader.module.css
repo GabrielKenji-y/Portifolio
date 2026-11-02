@@ -1,0 +1,212 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2.4vw, 2.25rem);
+  height: var(--header-height);
+  padding-inline: max(var(--gutter), env(safe-area-inset-left)) max(var(--gutter), env(safe-area-inset-right));
+  /* Faixa escura funcional: o texto que passa por baixo não briga com a navegação. */
+  background: linear-gradient(to bottom, var(--color-void) 35%, transparent);
+  animation: header-in 600ms var(--ease-out-expo) 300ms both;
+}
+
+@keyframes header-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.skip {
+  position: absolute;
+  top: var(--space-2xs);
+  left: var(--gutter);
+  padding: var(--space-2xs) var(--space-s);
+  background: var(--color-white);
+  color: var(--color-void);
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.skip:focus-visible {
+  transform: none;
+}
+
+.brand {
+  margin-right: auto;
+  font-stretch: var(--stretch-display);
+  font-weight: 680;
+  font-size: var(--step-0);
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity var(--duration-quick) ease;
+}
+
+.brand:hover {
+  opacity: 0.72;
+}
+
+/* Pausa do movimento automático: discreta, mas sempre ao alcance. */
+.motion {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text-secondary);
+  font-size: var(--step--1);
+  cursor: pointer;
+  transition: color var(--duration-quick) ease;
+}
+
+.motion:hover {
+  color: var(--text-primary);
+}
+
+.motionIcon {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+@media (max-width: 1080px) {
+  .motionLabel {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .motion {
+    min-width: 44px;
+    justify-content: center;
+  }
+}
+
+.list {
+  display: flex;
+  gap: clamp(1rem, 2.4vw, 2.25rem);
+}
+
+.link {
+  position: relative;
+  display: inline-block;
+  padding-block: var(--space-2xs);
+  color: var(--text-secondary);
+  font-size: var(--step--1);
+  text-decoration: none;
+  transition: color var(--duration-quick) ease;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.25rem;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 360ms var(--ease-out-expo);
+}
+
+.link:hover,
+.link[aria-current] {
+  color: var(--text-primary);
+}
+
+.link[aria-current]::after {
+  transform: scaleX(1);
+}
+
+.toggle {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2xs);
+    min-height: 44px;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-size: var(--step--1);
+    cursor: pointer;
+  }
+
+  .toggleIcon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .nav {
+    position: fixed;
+    inset: var(--header-height) 0 auto;
+    padding: var(--space-m) var(--gutter) var(--space-xl);
+    background: var(--color-void);
+    overscroll-behavior: contain;
+    border-bottom: 1px solid var(--color-graphite-line);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-0.5rem);
+    transition:
+      opacity 240ms var(--ease-out-expo),
+      transform 240ms var(--ease-out-expo),
+      visibility 0s linear 240ms;
+  }
+
+  .header[data-open='true'] {
+    background: var(--color-void);
+  }
+
+  .header[data-open='true'] .nav {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    transition-delay: 0s;
+  }
+
+  .list {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .link {
+    display: block;
+    padding-block: var(--space-xs);
+    font-stretch: var(--stretch-display);
+    font-size: var(--step-2);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+  }
+
+  .link::after {
+    display: none;
+  }
+
+  .link[aria-current] {
+    color: var(--text-primary);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header {
+    animation: none;
+  }
+
+  .nav,
+  .link::after {
+    transition: none;
+  }
+}

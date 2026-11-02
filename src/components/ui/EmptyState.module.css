@@ -1,0 +1,15 @@
+.empty {
+  display: grid;
+  gap: var(--space-m);
+  max-width: 46ch;
+  padding-top: var(--space-m);
+  border-top: 1px solid var(--color-graphite-line);
+}
+
+.text {
+  color: var(--text-secondary);
+}
+
+.action {
+  font-size: var(--step-1);
+}

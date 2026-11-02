@@ -1,0 +1,45 @@
+:root {
+  /* Paleta: preto profundo → grafite → aço → prata → branco */
+  --color-void: #030304;
+  --color-graphite: #16171a;
+  --color-graphite-line: #26282d;
+  --color-steel: #8d929b;
+  --color-silver: #c9ccd1;
+  --color-white: #f2f3f5;
+
+  --text-primary: var(--color-white);
+  --text-secondary: #b4b8bf;
+  --text-tertiary: var(--color-steel);
+
+  /* Tipografia: uma família, o eixo de largura separa os papéis */
+  --font-family: 'Archivo Variable', 'Archivo', system-ui, sans-serif;
+  --stretch-display: 125%;
+  --stretch-text: 100%;
+
+  --step--1: 0.875rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.25rem;
+  --step-2: clamp(1.5rem, 1.1rem + 1.4vw, 2.25rem);
+  --step-3: clamp(2.5rem, 1.4rem + 4.6vw, 5.5rem);
+  --step-display: clamp(3.2rem, 13vw, 14.5rem);
+
+  /* Espaço */
+  --gutter: clamp(1rem, 4vw, 4rem);
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-s: 1rem;
+  --space-m: 1.5rem;
+  --space-l: 2.5rem;
+  --space-xl: clamp(3rem, 6vw, 5rem);
+  --space-section: clamp(6rem, 16vh, 11rem);
+  --content-max: 90rem;
+  --measure: 60ch;
+
+  /* Movimento */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-quick: 180ms;
+  --duration-enter: 900ms;
+
+  --header-height: 4.25rem;
+  --focus-ring: 2px solid var(--color-white);
+}
