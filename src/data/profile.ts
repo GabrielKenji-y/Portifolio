@@ -133,10 +133,26 @@ export const profile: Profile = {
   ],
   // Competências e formação conforme o perfil do LinkedIn.
   skills: [
-    { title: 'Web', items: ['HTML5', 'CSS'] },
+    { title: 'Front-end', items: ['JavaScript', 'HTML5', 'CSS', 'Design responsivo'] },
+    { title: 'Back-end', items: ['Node.js', 'Express', 'APIs REST', 'SQLite'] },
+    {
+      title: 'Integrações',
+      items: ['Mercado Pago (Pix)', 'WhatsApp Cloud API', 'OpenStreetMap / OSRM', 'Impressão térmica ESC/POS'],
+    },
+    {
+      title: 'Segurança',
+      items: ['Sessões com cookie HttpOnly', 'Content Security Policy', 'Rate limiting', 'Validação no servidor'],
+    },
     {
       title: 'Ferramentas',
-      items: ['Microsoft Excel', 'Microsoft Word', 'Microsoft PowerPoint', 'Edição e publicação'],
+      items: [
+        'Git e GitHub',
+        'VS Code',
+        'Microsoft Excel',
+        'Microsoft Word',
+        'Microsoft PowerPoint',
+        'Edição e publicação',
+      ],
     },
     { title: 'Interpessoais', items: ['Resolução de problemas'] },
   ],
