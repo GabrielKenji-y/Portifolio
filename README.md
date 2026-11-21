@@ -27,12 +27,34 @@ Todo o conteúdo está em `src/data/profile.ts`. Os campos vazios mostram um est
 | Campo | Seção | Formato |
 |---|---|---|
 | `about` | Sobre | lista de parágrafos |
-| `projects` | Projetos | `Project[]` — só `id` e `name` são obrigatórios; resumo, tecnologias, imagem, links e ano aparecem quando preenchidos |
+| `projects` | Projetos | `Project[]`, na ordem em que aparecem (veja abaixo) |
 | `skills` | Habilidades | `{ title, items[] }[]` |
 | `education` | Formação | `{ id, institution, program, period?, status?, description? }[]` |
 | `email` | Contato | opcional; vira um canal `mailto:` |
 
 Os tipos estão em `src/types/content.ts`. Imagens de projeto vão em `public/projetos/` e precisam de `width`, `height` e `alt` reais.
+
+## Adicionar um projeto
+
+1. Crie uma pasta em `public/projetos/<id-do-projeto>/` e coloque as imagens em `.webp` (capa em 1600×1000; prints de celular em pé vão numa grade de 4 colunas, prints de computador em largura total).
+2. Em `src/data/profile.ts`, copie o bloco do Yoshida dentro de `projects`, troque o `id` e preencha os campos. O primeiro da lista aparece no topo.
+3. Rode `npm run build` para conferir se não faltou nada.
+
+| Campo | O que mostra |
+|---|---|
+| `id`, `name` | obrigatórios |
+| `year`, `role`, `status` | linha acima do título (`status` vira uma etiqueta) |
+| `client` | logo abaixo do título |
+| `summary` | resumo de uma ou duas frases |
+| `highlights` | lista curta com as principais entregas |
+| `technologies` | etiquetas de tecnologia |
+| `image` | capa (`src`, `alt`, `width`, `height`) |
+| `liveUrl`, `caseStudyUrl`, `repositoryUrl` | links "Abrir projeto", "Ler estudo de caso", "Ver código" |
+| `repositoryNote` | texto no lugar do link do código, ex. "Código privado" |
+| `details` | blocos do estudo de caso dentro de "Ver detalhes do projeto": `{ title, text?, items? }` |
+| `gallery` | imagens do estudo de caso, com `caption` opcional |
+
+Campos vazios simplesmente não aparecem, então um projeto pequeno pode ter só nome, resumo e link.
 
 ## Estrutura
 

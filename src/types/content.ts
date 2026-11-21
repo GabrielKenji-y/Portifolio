@@ -13,6 +13,15 @@ export interface ProjectImage {
   alt: string
   width: number
   height: number
+  /** Legenda curta mostrada abaixo da imagem na galeria. */
+  caption?: string
+}
+
+/** Um bloco do estudo de caso: um título e um parágrafo e/ou uma lista. */
+export interface ProjectDetail {
+  title: string
+  text?: string
+  items?: string[]
 }
 
 /**
@@ -22,12 +31,27 @@ export interface ProjectImage {
 export interface Project {
   id: string
   name: string
+  /** Para quem/onde foi feito, ex.: "Yoshida Sushi · Rondonópolis (MT)". */
+  client?: string
+  /** Situação atual, ex.: "Em produção", "Em desenvolvimento". */
+  status?: string
+  /** O que você fez no projeto, ex.: "Desenvolvimento full stack". */
+  role?: string
   summary?: string
+  /** Principais entregas, em frases curtas (aparecem como lista). */
+  highlights?: string[]
   technologies?: string[]
+  /** Imagem de capa (16:10 fica melhor). */
   image?: ProjectImage
+  /** Estudo de caso que abre em "Ver detalhes do projeto". */
+  details?: ProjectDetail[]
+  /** Prints extras mostrados dentro dos detalhes. */
+  gallery?: ProjectImage[]
   /** Endereço do projeto publicado. */
   liveUrl?: string
   repositoryUrl?: string
+  /** Quando o código não é público, um aviso no lugar do link (ex.: "Código privado"). */
+  repositoryNote?: string
   caseStudyUrl?: string
   year?: string
 }

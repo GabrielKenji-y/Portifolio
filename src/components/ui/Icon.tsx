@@ -7,6 +7,8 @@ const paths = {
   close: 'M6 6l12 12M18 6 6 18',
   pause: 'M9 6v12M15 6v12',
   play: 'M8 5.5v13l10.5-6.5z',
+  /** Abre/fecha um bloco (gira 180° quando aberto). */
+  chevron: 'M6 9.5l6 6 6-6',
 } as const
 
 export type IconName = keyof typeof paths
