@@ -13,8 +13,8 @@ export function Projects() {
     <Section id={sectionIds.projects} title="Projetos" stage="projetos" className={styles.projects}>
       {projects.length > 0 ? (
         <div className={styles.list}>
-          {projects.map((project) => (
-            <ProjectEntry key={project.id} project={project} />
+          {projects.map((project, i) => (
+            <ProjectEntry key={project.id} project={project} index={i + 1} />
           ))}
         </div>
       ) : (

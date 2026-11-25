@@ -32,7 +32,8 @@ export const COMPACT_QUERY = '(max-width: 760px), (max-aspect-ratio: 4/5)'
 const wide: Record<StageKey, Stage> = {
   inicio: { x: 0.56, y: 0.26, scale: 0.9, explode: 0, grid: 0, rotX: 0.42, rotY: 0.62, exposure: 1, frame: 0, opacity: 1 },
   sobre: { x: 0.46, y: 0, scale: 0.92, explode: 1, grid: 0, rotX: 0.3, rotY: 1.85, exposure: 1.12, frame: 1, opacity: 1 },
-  projetos: { x: 0.44, y: -0.04, scale: 0.86, explode: 0, grid: 1, rotX: 0.95, rotY: 3.3, exposure: 1.05, frame: 0, opacity: 1 },
+  // Projetos ocupam a largura toda: a bancada recua para o canto e fica de pano de fundo
+  projetos: { x: 0.86, y: -0.78, scale: 0.42, explode: 0, grid: 1, rotX: 0.95, rotY: 3.3, exposure: 0.55, frame: 0, opacity: 0.16 },
   habilidades: { x: 0.6, y: 0.05, scale: 0.56, explode: 0.3, grid: 0, rotX: 0.55, rotY: 4.7, exposure: 0.8, frame: 0, opacity: 1 },
   contato: { x: 0.42, y: 0.06, scale: 1.02, explode: 0, grid: 0, rotX: 0.42, rotY: TAU + 0.62, exposure: 0.72, frame: 0, opacity: 1 },
 }
@@ -41,9 +42,9 @@ const wide: Record<StageKey, Stage> = {
 const compact: Record<StageKey, Stage> = {
   inicio: { x: 0.12, y: 0.4, scale: 0.92, explode: 0, grid: 0, rotX: 0.42, rotY: 0.62, exposure: 1, frame: 0, opacity: 1 },
   sobre: { x: 0.56, y: 0.74, scale: 0.36, explode: 1, grid: 0, rotX: 0.3, rotY: 1.85, exposure: 0.55, frame: 0.5, opacity: 0.42 },
-  projetos: { x: 0.52, y: 0.75, scale: 0.36, explode: 0, grid: 1, rotX: 0.95, rotY: 3.3, exposure: 0.5, frame: 0, opacity: 0.42 },
+  projetos: { x: 0.6, y: -0.8, scale: 0.3, explode: 0, grid: 1, rotX: 0.95, rotY: 3.3, exposure: 0.45, frame: 0, opacity: 0.12 },
   habilidades: { x: 0.6, y: 0.76, scale: 0.3, explode: 0.3, grid: 0, rotX: 0.55, rotY: 4.7, exposure: 0.45, frame: 0, opacity: 0.35 },
-  contato: { x: 0.5, y: 0.72, scale: 0.42, explode: 0, grid: 0, rotX: 0.42, rotY: TAU + 0.62, exposure: 0.6, frame: 0, opacity: 0.6 },
+  contato: { x: 0.5, y: 0.72, scale: 0.42, explode: 0, grid: 0, rotX: 0.42, rotY: TAU + 0.62, exposure: 0.6, frame: 0, opacity: 0.35 },
 }
 
 export function stagesFor(isCompact: boolean): Record<StageKey, Stage> {

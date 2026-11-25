@@ -16,7 +16,7 @@
 
 /* Desktop: o texto fica na metade esquerda, o objeto ocupa a direita. */
 @media (min-width: 761px) {
-  .main > section:not(:first-child) {
+  .main > section:not(:first-child):not(:global(#projetos)) {
     max-width: min(100%, 44rem);
   }
 }

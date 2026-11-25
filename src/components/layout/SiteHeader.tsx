@@ -21,6 +21,15 @@ export function SiteHeader({ motion }: SiteHeaderProps) {
   const [open, setOpen] = useState(false)
   const menuId = useId()
   const toggleRef = useRef<HTMLButtonElement>(null)
+  const [scrolled, setScrolled] = useState(false)
+
+  // Depois do topo, o cabeçalho ganha fundo próprio e não briga com o texto que passa por baixo.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   // Menu aberto: Esc fecha e devolve o foco ao botão.
   useEffect(() => {
@@ -36,7 +45,7 @@ export function SiteHeader({ motion }: SiteHeaderProps) {
   }, [open])
 
   return (
-    <header className={styles.header} data-open={open}>
+    <header className={styles.header} data-open={open} data-scrolled={scrolled}>
       <a className={styles.skip} href="#conteudo">
         Pular para o conteúdo
       </a>

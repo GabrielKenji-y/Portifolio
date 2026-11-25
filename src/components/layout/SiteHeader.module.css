@@ -7,9 +7,27 @@
   gap: clamp(1rem, 2.4vw, 2.25rem);
   height: var(--header-height);
   padding-inline: max(var(--gutter), env(safe-area-inset-left)) max(var(--gutter), env(safe-area-inset-right));
-  /* Faixa escura funcional: o texto que passa por baixo não briga com a navegação. */
-  background: linear-gradient(to bottom, var(--color-void) 35%, transparent);
+  border-bottom: 1px solid transparent;
   animation: header-in 600ms var(--ease-out-expo) 300ms both;
+  transition:
+    background-color 300ms ease,
+    border-color 300ms ease,
+    backdrop-filter 300ms ease;
+}
+
+/* Rolando: vidro escuro com uma linha fina, o texto passa por baixo sem colidir */
+.header[data-scrolled='true'] {
+  background-color: rgba(3, 3, 4, 0.78);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+  border-bottom-color: var(--color-graphite-line);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .header[data-scrolled='true'] {
+    background-color: var(--color-void);
+    backdrop-filter: none;
+  }
 }
 
 @keyframes header-in {

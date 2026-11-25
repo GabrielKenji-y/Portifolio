@@ -63,7 +63,9 @@
   display: block;
   overflow: clip;
   overflow-clip-margin: 0.06em;
-  padding-bottom: 0.04em;
+  /* espaço para a perna do "j" e do "g", sem mudar o espaçamento entre as linhas */
+  padding-bottom: 0.2em;
+  margin-bottom: -0.16em;
 }
 
 .word {
@@ -127,6 +129,71 @@
 @media (prefers-reduced-motion: reduce) {
   .word,
   .intro {
+    animation: none;
+  }
+}
+
+/* Letras do nome: cada uma tem a própria largura (ver useFittingLetters) */
+.letter {
+  display: inline-block;
+  font-stretch: inherit;
+}
+
+/* Atalho para o trabalho: rótulo condensado e uma linha que desce, em vez de "role para baixo" */
+.cue {
+  position: absolute;
+  top: calc(var(--header-height) + var(--space-l));
+  left: 0;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding-block: var(--space-2xs);
+  color: var(--text-secondary);
+  font-stretch: var(--stretch-condensed);
+  font-size: var(--step--1);
+  text-decoration: none;
+  animation: fade-in 700ms var(--ease-out-expo) 700ms both;
+  transition: color var(--duration-quick) ease;
+}
+
+.cueLine {
+  position: relative;
+  width: 3.5rem;
+  height: 1px;
+  overflow: hidden;
+  background: var(--color-graphite-line);
+}
+
+.cueLine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-white);
+  transform: translateX(-100%);
+  animation: run 2.6s var(--ease-out-expo) 1.4s infinite;
+}
+
+@keyframes run {
+  60%,
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.cue:hover {
+  color: var(--text-primary);
+}
+
+@media (max-width: 760px) {
+  .cue {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cue,
+  .cueLine::after {
     animation: none;
   }
 }

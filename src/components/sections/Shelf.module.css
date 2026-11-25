@@ -46,3 +46,48 @@
 .shelf > header {
   margin-bottom: var(--space-m);
 }
+
+/* Ficha técnica: categoria condensada à esquerda, itens à direita, linha a linha */
+.groups .group {
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  column-gap: var(--space-m);
+  align-items: baseline;
+  padding-block: var(--space-s) 0;
+}
+
+.groups .groupTitle {
+  font-stretch: var(--stretch-condensed);
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: var(--text-tertiary);
+}
+
+.groups {
+  gap: var(--space-s);
+}
+
+.items {
+  color: var(--text-primary);
+  gap: 0.2rem 1rem;
+}
+
+.items li {
+  transition: color var(--duration-quick) ease;
+}
+
+@media (hover: hover) {
+  .groups:hover .items li {
+    color: var(--text-tertiary);
+  }
+
+  .groups .group:hover .items li {
+    color: var(--text-primary);
+  }
+}
+
+@media (max-width: 480px) {
+  .groups .group {
+    grid-template-columns: 1fr;
+    row-gap: 0.25rem;
+  }
+}
